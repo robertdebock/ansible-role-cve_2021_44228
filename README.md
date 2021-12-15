@@ -26,7 +26,10 @@ The machine needs to be prepared. In CI this is done using `molecule/default/pre
 - name: prepare
   hosts: all
   become: yes
-  gather_facts: yes
+  gather_facts: no
+
+  roles:
+    - role: robertdebock.bootstrap
 
   # The role is prepared to install extra software and also remove when
   # the role is done. This is not idempotent, so in this playbook, the
@@ -34,13 +37,10 @@ The machine needs to be prepared. In CI this is done using `molecule/default/pre
   vars_files:
     - ../../vars/main.yml
 
-  pre_tasks:
+  post_tasks:
     - name: install required software
       package:
         name: "{{ cve_2021_44228_required_package }}"
-
-  roles:
-    - role: robertdebock.bootstrap
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
