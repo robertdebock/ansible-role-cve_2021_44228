@@ -26,7 +26,18 @@ The machine needs to be prepared. In CI this is done using `molecule/default/pre
 - name: prepare
   hosts: all
   become: yes
-  gather_facts: no
+  gather_facts: yes
+
+  # The role is prepared to install extra software and also remove when
+  # the role is done. This is not idempotent, so in this playbook, the
+  # required software is already installed.
+  vars_files:
+    - ../../vars/main.yml
+
+  pre_tasks:
+    - name: install required software
+      package:
+        name: "{{ cve_2021_44228_required_package }}"
 
   roles:
     - role: robertdebock.bootstrap
@@ -47,6 +58,14 @@ cve_2021_44228_check_packages: yes
 
 # This check uses `find`, which may use the disk intensively.
 cve_2021_44228_check_files: yes
+
+# Add your own paths if you want to.
+cve_2021_44228_paths_to_check:
+  - /var
+  - /etc
+  - /usr
+  - /opt
+  - /lib64
 ```
 
 ## [Requirements](#requirements)

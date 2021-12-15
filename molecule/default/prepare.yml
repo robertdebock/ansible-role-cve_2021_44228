@@ -2,7 +2,7 @@
 - name: prepare
   hosts: all
   become: yes
-  gather_facts: no
+  gather_facts: yes
 
   # The role is prepared to install extra software and also remove when
   # the role is done. This is not idempotent, so in this playbook, the
