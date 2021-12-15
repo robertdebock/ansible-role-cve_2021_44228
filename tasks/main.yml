@@ -16,10 +16,12 @@
         name: "{{ cve_2021_44228_required_package }}"
       notify:
         - uninstall required software
+
     - name: get list of java pids
       command:
         cmd: ps -ef
       register: cve_2021_44228_processes
+      
     - name: check for java processes
       assert:
         that:
