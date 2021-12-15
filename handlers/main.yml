@@ -1,0 +1,7 @@
+---
+# handlers file for cve_2021_44228
+
+- name: uninstall required software
+  package:
+    name: "{{ cve_2021_44228_required_package }}"
+    state: absent

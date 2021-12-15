@@ -1,0 +1,94 @@
+---
+# tasks file for cve_2021_44228
+
+- name: include assert.yml
+  ansible.builtin.import_tasks: assert.yml
+  run_once: yes
+  delegate_to: localhost
+
+# The intent it to fail on found vulnerabilities, but proceed.
+# So `block` and `rescue`.
+
+- name: check processes
+  block:
+    - name: install required software
+      package:
+        name: "{{ cve_2021_44228_required_package }}"
+      notify:
+        - uninstall required software
+    - name: get list of java pids
+      command:
+        cmd: ps -ef
+      register: cve_2021_44228_processes
+    - name: check for java processes
+      assert:
+        that:
+          - '"java" not in cve_2021_44228_processes'
+        quiet: yes
+  rescue:
+    - name: show matched pids
+      debug:
+        msg: "Potentially vulneralble: {{ cve_2021_44228_processes }}"
+  when:
+    - cve_2021_44228_check_processes
+
+- name: check packages
+  block:
+    - name: get a list of packages
+      package_facts:
+
+    - name: check if package is installed
+      assert:
+        that:
+          - item not in ansible_facts.packages
+        quiet: yes
+      loop: "{{ cve_2021_44228_vulnerable_packages }}"
+  rescue:
+    - name: show vulnerable package
+      debug:
+        msg: "Potentially vulneralble: {{ item }}"
+      loop: "{{ cve_2021_44228_vulnerable_packages }}"
+  when:
+    - cve_2021_44228_check_packages
+
+- name: check files
+  block:
+    - name: find log4j files
+      find:
+        paths: "{{ cve_2021_44228_paths_to_check }}"
+        patterns:
+          - "*log4j*"
+      register: cve_2021_44228_files
+
+    - name: see if there are matches
+      assert:
+        that:
+          - cve_2021_44228_files.matched == 0
+        quiet: yes
+  rescue:
+    - name: show matched files
+      debug:
+        msg: "Potentially vulnerable: {{ item.path }}"
+      loop: "{{ cve_2021_44228_files.files }}"
+  when:
+    - cve_2021_44228_check_files
+
+# for path in "$@"; do
+#   echo "# Scanning $path"
+#   (find "$path" -type f | while read file; do
+#     case "$file" in
+#       *.jar)
+#         unzip -l "$file" | while read j; do
+#           case "$content" in
+#             *.class)
+#               echo "$content"
+#             ;;
+#           esac
+#         done
+#       ;;
+#       *.class)
+#         echo "$file"
+#       ;;
+#     esac
+#   done) | grep log4j
+# done
