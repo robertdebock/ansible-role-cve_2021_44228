@@ -21,7 +21,7 @@
       command:
         cmd: ps -ef
       register: cve_2021_44228_processes
-      
+
     - name: check for java processes
       assert:
         that:
