@@ -3,7 +3,7 @@
 
 - name: uninstall ps
   package:
-    name: "{{ cve_2021_44228_required_package }}"
+    name: "{{ cve_2021_44228_ps_package }}"
     state: absent
 
 - name: uninstall unzip

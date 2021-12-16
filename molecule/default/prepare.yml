@@ -16,4 +16,4 @@
   post_tasks:
     - name: install required software
       package:
-        name: ["{{ cve_2021_44228_required_package }}", unzip]
+        name: ["{{ cve_2021_44228_ps_package }}", unzip]

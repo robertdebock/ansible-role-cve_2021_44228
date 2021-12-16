@@ -40,7 +40,7 @@ The machine needs to be prepared. In CI this is done using `molecule/default/pre
   post_tasks:
     - name: install required software
       package:
-        name: ["{{ cve_2021_44228_required_package }}", unzip]
+        name: ["{{ cve_2021_44228_ps_package }}", unzip]
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
