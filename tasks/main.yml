@@ -7,7 +7,7 @@
   delegate_to: localhost
 
 # The intent it to fail on found vulnerabilities, but proceed.
-# So `block` and `rescue`.
+# So `block` to check (and fail) and `rescue` to report.
 
 - name: include proces checks
   include_tasks: processes.yml

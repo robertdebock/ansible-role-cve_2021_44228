@@ -53,23 +53,3 @@
           loop: "{{ cve_2021_44228_class_files.files }}"
           loop_control:
             label: "{{ item.path }}"
-
-# for path in "$@"; do
-#   echo "# Scanning $path"
-#   (find "$path" -type f | while read file; do
-#     case "$file" in
-#       *.jar)
-#         unzip -l "$file" | while read j; do
-#           case "$content" in
-#             *.class)
-#               echo "$content"
-#             ;;
-#           esac
-#         done
-#       ;;
-#       *.class)
-#         echo "$file"
-#       ;;
-#     esac
-#   done) | grep log4j
-# done
