@@ -1,5 +1,5 @@
 ---
-  
+
 - name: check processes
   block:
     - name: install ps
