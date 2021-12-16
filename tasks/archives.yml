@@ -1,15 +1,14 @@
 ---
 
-- name: check jar files
+- name: check archive files
   block:
-    - name: find jar files
+    - name: find archive files
       find:
         paths: "{{ cve_2021_44228_paths_to_check }}"
-        patterns:
-          - "*.jar"
-      register: cve_2021_44228_jar_files
+        patterns: "{{ cve_2021_44228_archive_patterns }}"
+      register: cve_2021_44228_archive_files
 
-    - name: inspect jars
+    - name: inspect archives
       block:
         - name: install unzip
           package:
@@ -17,24 +16,24 @@
           notify:
             - uninstall unzip
 
-        - name: unzip found jar files
+        - name: unzip found archives files
           command:
             cmd: unzip -l {{ item.path }}
           changed_when: no
-          register: unzipped_jars
-          loop: "{{ cve_2021_44228_jar_files.files }}"
+          register: unzipped_archives
+          loop: "{{ cve_2021_44228_archive_files.files }}"
           loop_control:
             label: "{{ item.path }}"
           failed_when:
-            - '"log4j" in unzipped_jars'
+            - '"log4j" in unzipped_archives'
       rescue:
         - name: show results
           debug:
             msg:
-              - "Found log4j in jar files."
-              - "{{ unzipped_jars }}"
+              - "Found log4j in archive files."
+              - "{{ unzipped_archives }}"
       when:
-        cve_2021_44228_jar_files.matched > 0
+        cve_2021_44228_archive_files.matched > 0
 
     - name: inspect log4j.class files
       block:

@@ -66,7 +66,7 @@ cve_2021_44228_check_files: yes
 
 # This check uses `find`, which may use the disk intensively.
 # Check suspicous jars
-cve_2021_44228_check_jars: yes
+cve_2021_44228_check_archives: yes
 
 # Add your own paths if you want to. The more paths you add, the more
 # the disk will be used, but not having enough paths poses a risk of
@@ -78,6 +78,13 @@ cve_2021_44228_paths_to_check:
   - /usr
   - /opt
   - /lib64
+
+# The types of archives to scan.
+cve_2021_44228_archive_patterns:
+  - "*.jar"
+  - "*.war"
+  - "*.ear"
+  - "*.aar"
 ```
 
 ## [Requirements](#requirements)

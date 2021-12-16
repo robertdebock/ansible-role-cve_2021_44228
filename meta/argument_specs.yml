@@ -20,7 +20,7 @@ argument_specs:
         type: "bool"
         default: yes
         description: "Check suspicous files."
-      cve_2021_44228_check_jars:
+      cve_2021_44228_check_archives:
         type: "bool"
         default: yes
         description: "Check suspicous jars."
@@ -33,3 +33,11 @@ argument_specs:
           - /opt
           - /lib64
         description: "Paths to find files and jars in."
+      cve_2021_44228_archive_patterns:
+        type: "list"
+        default:
+          - "*.jar"
+          - "*.war"
+          - "*.ear"
+          - "*.aar"
+        description: "The types of archives to scan."
