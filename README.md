@@ -40,7 +40,7 @@ The machine needs to be prepared. In CI this is done using `molecule/default/pre
   post_tasks:
     - name: install required software
       package:
-        name: "{{ cve_2021_44228_required_package }}"
+        name: ["{{ cve_2021_44228_required_package }}", unzip]
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -58,6 +58,9 @@ cve_2021_44228_check_packages: yes
 
 # This check uses `find`, which may use the disk intensively.
 cve_2021_44228_check_files: yes
+
+# This check uses `find`, which may use the disk intensively.
+cve_2021_44228_check_jars: yes
 
 # Add your own paths if you want to.
 cve_2021_44228_paths_to_check:
@@ -93,12 +96,10 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 
 |container|tags|
 |---------|----|
-|alpine|all|
 |amazon|all|
 |debian|all|
 |el|7, 8|
 |fedora|all|
-|opensuse|all|
 |ubuntu|focal, bionic|
 
 The minimum version of Ansible required is 2.10, tests have been done to:
