@@ -15,5 +15,5 @@
 
   post_tasks:
     - name: install required software
-      package:
+      ansible.builtin.package:
         name: ["{{ cve_2021_44228_ps_package }}", unzip]
