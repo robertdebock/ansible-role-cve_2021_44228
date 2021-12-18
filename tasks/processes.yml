@@ -8,7 +8,7 @@
       notify:
         - uninstall ps
 
-    - name: get list of java pids
+    - name: get list of processes
       ansible.builtin.command:
         cmd: ps -ef
       register: cve_2021_44228_processes
