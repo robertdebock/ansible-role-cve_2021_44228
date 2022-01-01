@@ -12,7 +12,7 @@
         quiet: yes
       loop: "{{ cve_2021_44228_vulnerable_packages }}"
   rescue:
-    - name: show vulnerable package
+    - name: show potential vulnerable package
       ansible.builtin.debug:
         msg: "Potentially vulneralble: {{ item }}"
       loop: "{{ cve_2021_44228_vulnerable_packages }}"
