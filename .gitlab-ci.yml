@@ -39,7 +39,7 @@ molecule:
       - image: "opensuse"
         tag: "latest"
       - image: "ubuntu"
-        tag: "latest"
+        tag: "focal"
       - image: "ubuntu"
         tag: "bionic"
 
