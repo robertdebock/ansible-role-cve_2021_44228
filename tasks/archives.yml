@@ -17,7 +17,8 @@
             - Uninstall unzip
 
         - name: Unzip found archives files
-          ansible.builtin.command: unzip -l {{ item.path }}  # noqa command-instead-of-module
+          ansible.builtin.command:
+            cmd: unzip -l {{ item.path }}  # noqa command-instead-of-module
           changed_when: no
           register: unzipped_archives
           loop: "{{ cve_2021_44228_archive_files.files }}"
