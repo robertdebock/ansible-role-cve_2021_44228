@@ -94,7 +94,7 @@ cve_2021_44228_archive_patterns:
 
 - pip packages listed in [requirements.txt](https://github.com/robertdebock/ansible-role-cve_2021_44228/blob/master/requirements.txt).
 
-## [Status of used roles](#status-of-requirements)
+## [State of used roles](#state-of-used-roles)
 
 The following roles are used to prepare a system. You can prepare your system in another way.
 
