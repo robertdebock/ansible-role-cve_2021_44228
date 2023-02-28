@@ -5,4 +5,4 @@
 repository:
   description: Check and report for cve_2021_44228 (log4shell) on your system.
   homepage: https://robertdebock.nl/
-  topics: cve202144228, log4shell, log4j, ansible, molecule, tox, playbook, hacktoberfest
+  topics: cve202144228, log4shell, log4j, ansible, molecule, tox, playbook
