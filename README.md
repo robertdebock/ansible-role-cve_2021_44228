@@ -2,9 +2,9 @@
 
 Check and report for cve_2021_44228 (log4shell) on your system.
 
-|GitHub|GitLab|Quality|Downloads|Version|
-|------|------|-------|---------|-------|
-|[![github](https://github.com/robertdebock/ansible-role-cve_2021_44228/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-cve_2021_44228/actions)|[![gitlab](https://gitlab.com/robertdebock-iac/ansible-role-cve_2021_44228/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-cve_2021_44228)|[![quality](https://img.shields.io/ansible/quality/57278)](https://galaxy.ansible.com/robertdebock/cve_2021_44228)|[![downloads](https://img.shields.io/ansible/role/d/57278)](https://galaxy.ansible.com/robertdebock/cve_2021_44228)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-cve_2021_44228.svg)](https://github.com/robertdebock/ansible-role-cve_2021_44228/releases/)|
+|GitHub|GitLab|Downloads|Version|
+|------|------|---------|-------|
+|[![github](https://github.com/robertdebock/ansible-role-cve_2021_44228/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-cve_2021_44228/actions)|[![gitlab](https://gitlab.com/robertdebock-iac/ansible-role-cve_2021_44228/badges/master/pipeline.svg)](https://gitlab.com/robertdebock-iac/ansible-role-cve_2021_44228)|[![downloads](https://img.shields.io/ansible/role/d/24471)](https://galaxy.ansible.com/robertdebock/cve_2021_44228)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-cve_2021_44228.svg)](https://github.com/robertdebock/ansible-role-cve_2021_44228/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -129,7 +129,7 @@ The minimum version of Ansible required is 2.12, tests have been done to:
 - The current version.
 - The development version.
 
-If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-cve_2021_44228/issues)
+If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-cve_2021_44228/issues).
 
 ## [License](#license)
 
