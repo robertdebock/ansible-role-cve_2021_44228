@@ -1,4 +1,4 @@
-# Ansible role [cve_2021_44228](#cve_2021_44228)
+# [Ansible role cve_2021_44228](#cve_2021_44228)
 
 Check and report for cve_2021_44228 (log4shell) on your system.
 
