@@ -1,5 +1,7 @@
 # [Ansible role cve_2021_44228](#cve_2021_44228)
 
+> THIS ROLE HAS BEEN ARCHIVED AS OF DEC 2023.
+
 Check and report for cve_2021_44228 (log4shell) on your system.
 
 |GitHub|GitLab|Downloads|Version|
